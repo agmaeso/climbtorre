@@ -1,0 +1,4 @@
+{"result":{"resOptions":{}},"connect-rest":"2.0.0","level":"error","message":"undefined","timestamp":"2016-02-15T18:45:48.161Z"}
+{"result":{"resOptions":{}},"connect-rest":"2.0.0","level":"error","message":"undefined","timestamp":"2016-02-15T18:46:10.464Z"}
+{"result":{"resOptions":{}},"connect-rest":"2.0.0","level":"error","message":"undefined","timestamp":"2016-02-15T18:49:11.916Z"}
+{"result":{"result":"No se ha podido encontrar la actividad.","resOptions":{}},"connect-rest":"2.0.0","level":"error","message":"Cast to ObjectId failed for value \"1\" at path \"_id\"","timestamp":"2016-02-15T19:14:47.192Z"}

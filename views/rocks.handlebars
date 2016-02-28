@@ -1,0 +1,72 @@
+{{!-- 
+Esta es una forma nada ortodoxa de crear una View de un buen desarrollo MVC. La estamos creando on-the-fly
+En posteriores versiones se podría hacer un refino y utilizar componentes de React o de Polymer (¿?) 
+--}}
+{{#section 'head'}}
+	<title>Rocas</title>
+	<script src="/vendor/holder.js"></script>
+	<style>
+		.holderjs {
+			border-style: solid;
+			border-width: 15px;
+		}
+	</style>
+{{/section}}
+
+<div class="container rock">
+
+	{{#each rocks}}
+         <div class="row">
+            <div class="col-md-8">
+                <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+				<!-- img data-src="holder.js/300x200" -->
+				<!-- div class="holderjs" data-background-src="holder.js/500x200"></div -->
+            </div>
+            <!-- /.col-md-8 -->
+            <div class="col-md-4">
+	            <p>Piedra:</p> 
+    	        <h1>{{name}}</h1>
+        	    <p>{{description}}</p>
+            	<p>Calidad de la piedra: {{quality}}</p>
+				<p>Estado desarrollo: {{maturity}}</p>
+				{{#if available}}
+					<div>
+						<p><a href="/cart/add?sku={{sku}}" class="btn btn-default">Añádelo a tu ruta!</a></p>
+						<p><a class="btn btn-primary">Me gusta!</a></p>
+		        	</div>
+				{{/if}}
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+		<hr>
+		{{#if available}}
+	        <div class="row">
+    	        <div class="col-lg-12">
+        	        <div class="well text-center">
+                    	<h2>Vías</h2>
+                   	</div>
+            	</div>
+	       	</div>
+	        <div class="row">
+				{{#each childs}}
+					<div class="col-md-4 line">
+		                Via:<h2> {{name}}</h2>
+		                <p>Grado: {{category}}</p>
+						<p>Longitud: {{length}} mts.</p>
+						<p>Largos: {{pitches}}</p>
+						<p>Condición: {{condition}}</p>
+						<p>{{description}}</p>
+		                <a class="btn btn-default" href="#">La quiero escalar</a>
+	            	</div>
+				{{/each}}
+			</div>
+
+		{{else}}
+			<span class="unavailable">Lo sentimos, esta roca no puede escalarse en estos momentos debido a: '{{causeUnav}}'</span>
+			{{! The "notify me when this vacation is in season" page will be our next task. }}
+			<a href="/notify-me-when-available?sku={{sku}}" class="btn btn-default">Notifícame cuando esta roca pueda escalarse.</a>
+		{{/if}}
+		<hr style="border-width: 3px; color:blue">
+	{{/each}}
+
+</div>
